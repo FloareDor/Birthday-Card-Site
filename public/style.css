@@ -1,0 +1,226 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #FCC6E2;
+  animation: gradientAnimation 10s ease infinite;
+  background-size: 600% 600%;
+  overflow: hidden;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+#background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.background-image {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.7;
+  transition: background-image 1s;
+}
+
+.card {
+  width: 1000px;
+  height: 600px;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-perspective: 1200px;
+  perspective: 1200px;
+  transition: 1s;
+}
+
+.card:hover {
+  transform: rotate(-5deg);
+}
+
+.card:hover .outside {
+  transform: rotateY(-130deg);
+}
+
+.outside,
+.inside {
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  left: 50.1%;
+}
+
+.inside {
+  background: linear-gradient(to right, #e7e7e7, #FFFDE7 30%);
+  line-height: 3;
+  padding: 0 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  left: 50%;
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 20px;
+}
+
+.outside {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  z-index: 1;
+  transform-origin: left;
+  transition: 2s;
+  cursor: pointer;
+}
+
+.front,
+.back {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: rotateX(0deg);
+  /* padding: 16px; */
+  padding-right: 20px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  
+}
+
+.back img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: fill;
+}
+
+.front {
+  background-color: #FFFDE7;
+  line-height: 10px;
+}
+
+.back {
+  transform: rotateY(180deg);
+  background: linear-gradient(to left, #e7e7e7, #FFFDE7 30%);
+}
+
+.cake {
+  width: 100%;
+  position: absolute;
+  bottom: 30px;
+}
+
+.top-layer,
+.middle-layer,
+.bottom-layer {
+  height: 80px;
+  width: 240px;
+  background-repeat: repeat;
+  background-size: 60px 100px;
+  background-position: 28px 0;
+  background-image: linear-gradient(
+      transparent 50px,
+      #fedbab 50px,
+      #fedbab 60px,
+      transparent 60px
+    ),
+    radial-gradient(circle at 30px 5px, #994c10 30px, #FCC6E2 31px);
+  border-radius: 10px 10px 0 0;
+  position: relative;
+  margin: auto;
+}
+
+.middle-layer {
+  transform: scale(0.85);
+  top: 6px;
+}
+
+.top-layer {
+  transform: scale(0.7);
+  top: 26px;
+}
+
+.candle {
+  height: 45px;
+  width: 15px;
+  background: repeating-linear-gradient(
+    45deg,
+    #fd3018 0,
+    #fd3018 5px,
+    #FCC6E2 5px,
+    #FCC6E2 10px
+  );
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 202px;
+}
+
+.candle:before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  background-color: #ffa500;
+  border-radius: 0 50% 50% 50%;
+  bottom: 48px;
+  transform: rotate(45deg);
+  left: -1px;
+}
+
+.outside p {
+  font-size: 23px;
+  text-transform: uppercase;
+  margin-top: 30px;
+  text-align: center;
+  letter-spacing: 6px;
+  color: #000046;
+}
+
+.inside h1 {
+  font-size: 120px;
+  line-height: 120px;
+}
+
+.inside p {
+  font-family: 'Great Vibes', cursive;
+  font-size: 20px;
+  font-weight: 500;
+  background: -webkit-linear-gradient(#802f59, #660e60);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.inside .signature {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 500;
+  color: #660e40;
+}
